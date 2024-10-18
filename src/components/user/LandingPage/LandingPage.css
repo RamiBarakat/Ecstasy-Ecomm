@@ -1,0 +1,64 @@
+/* Landing Page Main Container */
+.landing {
+    height: 70vh;
+    width: calc( 100% - 200px);
+    display: flex;
+    margin: 50px auto;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Left Section */
+.landing .left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the left */
+    padding: 0 50px;
+    color: #333;
+}
+
+.landing .left h1 {
+    font-size: 56px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+    color: #222; /* Slightly darker color for text */
+    text-transform: uppercase; /* Adds emphasis */
+    letter-spacing: 2px; /* Adds a bit of spacing between letters */
+}
+
+.landing .left h1:nth-child(1) {
+    color: #ff6f61; /* First line in a bold, standout color */
+}
+
+.landing .left button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.landing .left button:hover {
+    background-color: #ff4a3d;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.landing .right {
+    width: 50%;
+    background-image: url('https://source.unsplash.com/featured/?shopping');
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+}

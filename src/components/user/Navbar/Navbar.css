@@ -1,0 +1,146 @@
+/* General Navbar Styles */
+.navbar {
+    width: 100%;
+    padding: 10px 0px 0px 0px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  /* Top Part Styles */
+  .top-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+
+  }
+  
+  .sep {
+    
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+  }
+  
+  /* Sign-in/Register Section */
+  .sign-in-register p {
+    margin: 0;
+  }
+  
+  .sign-in-register a {
+    color: #0074cc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .sign-in-register a:hover {
+    color: #005bb5;
+  }
+
+  .top-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .top-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .top-links a:hover {
+    color: #0074cc;
+  }
+  
+  .wishlist-cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .wishlist-cart a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .wishlist-cart a:hover {
+    color: #0074cc;
+  }
+  
+  /* Bottom Part Styles */
+  .bottom-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px;
+  }
+
+  .logo {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  .logo img{
+    
+    width: 120px;
+    height: 40px;
+  }
+  
+  .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0074cc;
+    text-decoration: none;
+  }
+  
+  .logo a:hover {
+    color: #005bb5;
+  }
+  
+  /* Search Bar Styles */
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 60%;
+    max-width: 800px;
+    background-color: #f9f9f9;
+  }
+  
+  .search-category {
+    border: none;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .search-btn {
+    background-color: #0074cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .search-btn:hover {
+    background-color: #005bb5;
+  }
+  
