@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './ProductsPage.css';
 import ProductModal from '../../../components/user/ProductModal/ProductModal';
 import { useLocation } from 'react-router-dom';
+import "../ProductsPage/ProductsPage.css";
 
 //filtering done for only the page we are in (no Server side filtering)
 export default function ProductsPage(props) {
@@ -159,7 +159,7 @@ export default function ProductsPage(props) {
         {<h2>Seacrhed for {selectedCategoryNames}</h2>}
 
         <div className='row'>
-            <aside className="sidebar">
+            <aside className="sidebarProduct">
             <h3>Filters</h3>
     
             {/* Category Filter */}
@@ -225,7 +225,7 @@ export default function ProductsPage(props) {
                 In Stock Only
                 </label>
             </div>
-            </aside>
+          </aside>
             
             
             {/* Product Grid */}

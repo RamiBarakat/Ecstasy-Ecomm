@@ -1,5 +1,5 @@
-import './Categories.css';
 import React, { useState, useEffect, forwardRef } from 'react';
+import './Categories.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';

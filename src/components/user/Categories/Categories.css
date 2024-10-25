@@ -10,7 +10,7 @@
     position: relative;
     overflow: hidden; 
 }
-.category-gap{
+ .category-gap{
     margin: auto;
     width: 100%;
     max-width: 1200px;
@@ -56,12 +56,12 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.category-card:hover {
+     .category-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.category-card img {
+.categories .category-card img {
     padding: 10px;
     width: 200px; 
     height: 200px; 
