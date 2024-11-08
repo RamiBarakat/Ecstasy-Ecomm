@@ -5,11 +5,23 @@ import { Link as ScrollLink } from 'react-scroll';
 import { FaSearch, FaShoppingCart, FaUserCircle } from 'react-icons/fa';
 import axios from 'axios';
 
-export default function Navbar({ isLogin }) {
+export default function Navbar() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [query, setQuery] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  const isLogin = () => {
+    if (localStorage.getItem('token')) {
+      setLoggedIn(true);
+
+    } else {
+      setLoggedIn(false);
+    }
+  }
+
+  localStorage.getItem('token');
 
   const getCategories = async () => {
     try {
@@ -37,7 +49,7 @@ export default function Navbar({ isLogin }) {
     <nav className="navbar">
       <div className="top-part">
         <div className="sign-in-register">
-          {isLogin ? (
+          {loggedIn ? (
             <p>Welcome, <a href="/profile">User</a></p>
           ) : (
             <p><a href="/login">Login</a> or <a href="/register">Register</a></p>

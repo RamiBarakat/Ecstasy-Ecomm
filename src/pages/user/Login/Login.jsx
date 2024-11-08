@@ -31,7 +31,7 @@ export default function Login() {
 
   const loginUser = async () => {
     try {
-      const { data } = await axios.post(`https://ecommerce-node4.onrender.com/auth/login`, formik.values);
+      const { data } = await axios.post(`https://ecommerce-node4.onrender.com/auth/signin`, formik.values);
       if (data.message === 'success') {
         alert('User logged in successfully');
 
