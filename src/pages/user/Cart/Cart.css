@@ -68,11 +68,9 @@
   .quantity-controls {
     display: flex;
     align-items: center;
+    gap: 2px;
   }
-  .quantity-controls span {
-    margin-right: 10px;
 
-  }
   
   .quantity-controls button{
    background-color: #f0f0f0;

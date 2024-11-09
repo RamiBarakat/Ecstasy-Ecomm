@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <Login />, // Login remains under Root layout
+        element: <Login />, 
       },
       {
         path: '/register',

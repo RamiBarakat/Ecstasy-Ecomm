@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './CategoryDetails.css'; // Assuming you will add the styles here
+import './CategoryDetails.css';
 
 export default function CategoryDetails() {
   const { id } = useParams();

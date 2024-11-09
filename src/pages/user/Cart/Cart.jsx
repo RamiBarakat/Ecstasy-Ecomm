@@ -1,81 +1,59 @@
-import React, { useState } from 'react'
-import './Cart.css'
-
+import React, { useState, useEffect } from 'react';
+import './Cart.css';
 
 export default function Cart() {
-
-    const [loggedIn, setLoggedIn] = useState(false)
-    const [cartItems, setCartItems] = useState([
-        {
-          id: 1,
-          name: 'Lucite Incense Holder Set',
-          description: 'Set of 2',
-          price: 14,
-          quantity: 3,
-          image: 'https://via.placeholder.com/150',
-        },
-        {
-          id: 2,
-          name: 'Arc Dusen Dusen Puzzle',
-          description: 'Puzzle',
-          price: 28,
-          quantity: 1,
-          image: 'https://via.placeholder.com/150',
-        },
-        {
-          id: 3,
-          name: 'Lucite Stapler',
-          description: 'Iridescent',
-          price: 26,
-          quantity: 1,
-          image: 'https://via.placeholder.com/150',
-        },
-      ]);
-
-      const checkLogin = () => {
-        if (localStorage.getItem('token')) {
-          setLoggedIn(true);
-        } else {
-          setLoggedIn(false);
-        }
-      }
-
-    const getTotalPrice = () => {
-        let total = 0;
-        cartItems.forEach(item => {
-            total += item.price * item.quantity;
-        });
-        return total.toFixed(2);
-    }
-
-    const decreaseQuantity = (id) => {
-        setCartItems(cartItems.map( item => {
-            if(item.id === id) {
-                return {...item, quantity: Math.max(item.quantity - 1, 1)}
-            }
-            return item;
-        }));
-    }
-
-    const increaseQuantity = (id) =>
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [cartItems, setCartItems] = useState([
     {
-        const newItems = cartItems.map(item => {
-            if(item.id === id) {
-                return {...item, quantity: item.quantity + 1}
-            }
-            return item;
-        })
+      id: 1,
+      name: 'Lucite Incense Holder Set',
+      description: 'Set of 2',
+      price: 14,
+      quantity: 3,
+      image: 'https://via.placeholder.com/150',
+    },
+    {
+      id: 2,
+      name: 'Arc Dusen Dusen Puzzle',
+      description: 'Puzzle',
+      price: 28,
+      quantity: 1,
+      image: 'https://via.placeholder.com/150',
+    },
+    {
+      id: 3,
+      name: 'Lucite Stapler',
+      description: 'Iridescent',
+      price: 26,
+      quantity: 1,
+      image: 'https://via.placeholder.com/150',
+    },
+  ]);
 
-        setCartItems(newItems);
+  useEffect(() => {
+    checkLogin();
+  }, []);
 
-    }
+  const checkLogin = () => {
+    setLoggedIn(!!localStorage.getItem('userToken'));
+  };
 
-    const removeItem = (id) => {
-        setCartItems(cartItems.filter(item => item.id !== id));
-    }
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+  };
+
+  const updateQuantity = (id, amount) => {
+    setCartItems(cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: Math.max(item.quantity + amount, 1) } : item
+    ));
+  };
+
+  const removeItem = (id) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+  };
 
   return (
-    <div className='cart-container'>
+    <div className="cart-container">
       <h2>Cart</h2>
       {loggedIn ? (
         <div className="cart-items">
@@ -95,6 +73,7 @@ export default function Cart() {
                     <button
                       className="remove-button"
                       onClick={() => removeItem(item.id)}
+                      aria-label={`Remove ${item.name}`}
                     >
                       x
                     </button>
@@ -104,9 +83,9 @@ export default function Cart() {
                   <td>${item.price.toFixed(2)}</td>
                   <td>
                     <div className="quantity-controls">
-                      <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                      <button onClick={() => updateQuantity(item.id, -1)}>-</button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => increaseQuantity(item.id)}>+</button>
+                      <button onClick={() => updateQuantity(item.id, 1)}>+</button>
                     </div>
                   </td>
                   <td>${(item.price * item.quantity).toFixed(2)}</td>

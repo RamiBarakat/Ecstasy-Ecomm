@@ -4,7 +4,6 @@ import ProductModal from '../../../components/user/ProductModal/ProductModal';
 import { useLocation } from 'react-router-dom';
 import "../ProductsPage/ProductsPage.css";
 
-//filtering done for only the page we are in (no Server side filtering)
 export default function ProductsPage(props) {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -26,7 +25,7 @@ export default function ProductsPage(props) {
       try {
         const { data } = await axios.get(`https://ecommerce-node4.onrender.com/products?page=${page}&limit=16`);
         setProducts(data.products);
-        const PageCount = Math.ceil(data.total / 16); // (all products / limit)
+        const PageCount = Math.ceil(data.total / 16);
         setTotalPages(PageCount);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -156,7 +155,7 @@ export default function ProductsPage(props) {
   
     return (
       <div className='products-page'>
-        {<h2>Seacrhed for {selectedCategoryNames}</h2>}
+        {<h2>Searched for {selectedCategoryNames}</h2>}
 
         <div className='row'>
             <aside className="sidebarProduct">

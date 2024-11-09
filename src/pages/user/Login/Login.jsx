@@ -3,9 +3,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './Login.css';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
+  const navigate = useNavigate()
   const validationSchema = Yup.object({
     email: Yup.string()
       .email('Invalid email format')
@@ -33,16 +35,15 @@ export default function Login() {
     try {
       const { data } = await axios.post(`https://ecommerce-node4.onrender.com/auth/signin`, formik.values);
       if (data.message === 'success') {
-        alert('User logged in successfully');
 
         localStorage.setItem("userToken", data.token);
+        navigate('/')
 
       } else {
-        alert('Login failed, please try again');
+        console.log('Login failed, please try again');
       }
     } catch (error) {
       console.error('Error during login', error);
-      alert('An error occurred, please try again');
     }
   }
 

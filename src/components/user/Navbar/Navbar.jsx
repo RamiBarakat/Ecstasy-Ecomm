@@ -13,7 +13,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const isLogin = () => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('userToken')) {
       setLoggedIn(true);
 
     } else {
@@ -21,7 +21,10 @@ export default function Navbar() {
     }
   }
 
-  localStorage.getItem('token');
+
+  useEffect(()=>{
+    isLogin()
+  },[])
 
   const getCategories = async () => {
     try {
